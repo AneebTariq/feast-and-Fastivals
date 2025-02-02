@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 
 class DiscoverController extends GetxController{
-  RxString selectedFilter=''.obs;
-  RxString selectedLocationRadius=''.obs;
+  RxString selectedFilter='Events'.obs;
+  RxString selectedLocationRadius='25'.obs;
 
 
   List items=[

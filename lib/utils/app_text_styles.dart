@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyles {
-  static final String _fontPoppins = GoogleFonts.poppins().fontFamily!;
+  static final String _fontPoppins = GoogleFonts.inter().fontFamily!;
 
   static TextStyle font16_400TextStyle = TextStyle(
     fontSize: 16,
     fontFamily: _fontPoppins,
     fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle font16_600TextStyle = TextStyle(
+    fontSize: 16,
+    fontFamily: _fontPoppins,
+    fontWeight: FontWeight.w600,
   );
 
   static TextStyle font11_700TextStyle = TextStyle(
@@ -70,6 +76,12 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
 
+  static TextStyle font14_500TextStyle = TextStyle(
+    fontSize: 14,
+    fontFamily: _fontPoppins,
+    fontWeight: FontWeight.w500,
+  );
+
   static TextStyle font14_600TextStyle = TextStyle(
     fontSize: 14,
     fontFamily: _fontPoppins,
@@ -118,7 +130,13 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
   );
 
-  static TextStyle font20TextStyle = TextStyle(
+  static TextStyle font18_600TextStyle = TextStyle(
+    fontSize: 18,
+    fontFamily: _fontPoppins,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle font20_600TextStyle = TextStyle(
     fontSize: 20,
     fontFamily: _fontPoppins,
     fontWeight: FontWeight.w600,

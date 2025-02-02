@@ -10,7 +10,6 @@ class SettingListWidget extends StatelessWidget {
     super.key,
     required this.title,
     this.subTitle,
-    this.icon,
     this.iconWidget,
     this.onClick,
     required this.firstIcon,
@@ -18,7 +17,6 @@ class SettingListWidget extends StatelessWidget {
   });
   final String title;
   final String? subTitle;
-  final IconData? icon;
   final IconData firstIcon;
   final Color firstIconClr;
   final Widget? iconWidget;
@@ -31,7 +29,7 @@ class SettingListWidget extends StatelessWidget {
         padding: EdgeInsets.symmetric(
             vertical: 15.h, horizontal:10.w),
         decoration: BoxDecoration(
-          color: kcBackgroundColor,
+          color: kcWhiteColor,
           borderRadius: BorderRadius.circular(15),
           border: Border.all(color: kcLightGrey),
         ),
@@ -49,7 +47,7 @@ class SettingListWidget extends StatelessWidget {
                   color: firstIconClr == kcBackgroundColor
                       ? kcPrimaryColor
                       : kcBackgroundColor,
-                  size: 18,
+                  size: 24,
                 )),
             horizontalSpaceMedium,
             Column(
@@ -57,8 +55,9 @@ class SettingListWidget extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: AppTextStyles.font16_400TextStyle,
+                  style: AppTextStyles.font16_600TextStyle,
                 ),
+                subTitle != null? verticalSpaceTiny:const SizedBox.shrink(),
                 subTitle == null
                     ? const SizedBox.shrink()
                     : Text(
@@ -70,10 +69,10 @@ class SettingListWidget extends StatelessWidget {
             ),
             const Spacer(),
             iconWidget == null
-                ? Icon(
-              icon,
+                ? const Icon(
+              Icons.arrow_forward_ios,
               color: kcLightGrey,
-              size: 18,
+              size: 24,
             )
                 : iconWidget ?? const SizedBox(),
           ],

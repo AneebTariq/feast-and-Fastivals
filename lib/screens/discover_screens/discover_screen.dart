@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pak_festive/screens/discover_screens/widgets/event_and_restaurants.dart';
 import 'package:pak_festive/screens/discover_screens/widgets/search_filters.dart';
+import '../../utils/app_colors.dart';
 import '../../utils/helper.dart';
 import '../../widgets/common_textfield.dart';
 import '../../widgets/custom_appbar.dart';
@@ -13,6 +14,7 @@ class DiscoverScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kcBackgroundColor,
       appBar: const CustomAppBar(
         title: 'Discover',
         centerTitle: true,
@@ -21,6 +23,7 @@ class DiscoverScreen extends StatelessWidget {
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             verticalSpaceSmall,
             verticalSpaceSmall,
@@ -31,12 +34,12 @@ class DiscoverScreen extends StatelessWidget {
                   width: 300.w,
                   child: CustomTextField(
                     controller: TextEditingController(),
-                    title: 'Search',
+                    hintText: 'Search',
                     suffixIcon: IconButton(
                         onPressed: () {},
-                        icon: const Icon(
+                        icon:  const Icon(
                           Icons.search_rounded,
-                          size: 35,
+                          size: 24,
                         )),
                   ),
                 ),
@@ -57,6 +60,7 @@ class DiscoverScreen extends StatelessWidget {
                     )),
               ],
             ),
+            verticalSpaceSmall,
             verticalSpaceSmall,
             const EventAndRestaurants(),
           ],

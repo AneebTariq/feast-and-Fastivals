@@ -17,8 +17,8 @@ class SearchFilters extends StatelessWidget {
       children: [
         verticalSpaceSmall,
         Text(
-          'Search Filters',
-          style: AppTextStyles.font24_900TextStyle,
+          'Search Filters:',
+          style: AppTextStyles.font20_600TextStyle,
         ),
         verticalSpaceMedium,
         Obx(
@@ -34,18 +34,20 @@ class SearchFilters extends StatelessWidget {
                         padding: EdgeInsets.symmetric(
                             horizontal: 15.w, vertical: 10.h),
                         decoration: BoxDecoration(
-                          color: kcWhiteColor,
+                          color: controller.selectedFilter.value == item
+                              ? kcSecondary.withOpacity(0.1)
+                              : kcWhiteColor,
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                               color: controller.selectedFilter.value == item
-                                  ? kcPrimaryColor
+                                  ? kcSecondary
                                   : kcLightGrey),
                         ),
                         child: Text(
                           item,
-                          style: AppTextStyles.font18_700TextStyle.copyWith(
+                          style: AppTextStyles.font16_600TextStyle.copyWith(
                               color: controller.selectedFilter.value == item
-                                  ? kcPrimaryColor
+                                  ? kcSecondary
                                   : kcBlackColor),
                         ),
                       ),
@@ -55,8 +57,8 @@ class SearchFilters extends StatelessWidget {
         ),
         verticalSpaceMedium,
         Text(
-          'Location Radius',
-          style: AppTextStyles.font24_900TextStyle,
+          'Location Radius:',
+          style: AppTextStyles.font20_600TextStyle,
         ),
         verticalSpaceMedium,
         Obx(
@@ -72,20 +74,22 @@ class SearchFilters extends StatelessWidget {
                         padding: EdgeInsets.symmetric(
                             horizontal: 15.w, vertical: 10.h),
                         decoration: BoxDecoration(
-                          color: kcWhiteColor,
+                          color: controller.selectedLocationRadius.value == item
+                              ? kcSecondary.withOpacity(0.1)
+                              : kcWhiteColor,
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                               color: controller.selectedLocationRadius.value ==
                                       item
-                                  ? kcPrimaryColor
+                                  ? kcSecondary
                                   : kcLightGrey),
                         ),
                         child: Text(
                           "$item Km",
-                          style: AppTextStyles.font18_700TextStyle.copyWith(
+                          style: AppTextStyles.font16_600TextStyle.copyWith(
                               color: controller.selectedLocationRadius.value ==
                                       item
-                                  ? kcPrimaryColor
+                                  ? kcSecondary
                                   : kcBlackColor),
                         ),
                       ),

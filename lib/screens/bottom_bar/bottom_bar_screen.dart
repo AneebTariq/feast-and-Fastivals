@@ -16,7 +16,7 @@ class BottomBarScreen extends StatelessWidget {
             () => CrystalNavigationBar(
           currentIndex: controller.selectedIndex,
           unselectedItemColor: kcWhiteColor,
-          selectedItemColor: kcPrimaryColor,
+          selectedItemColor: kcSecondary,
           backgroundColor: Colors.black.withOpacity(0.2),
           onTap: (index) => controller.setIndex(index),
           items: [

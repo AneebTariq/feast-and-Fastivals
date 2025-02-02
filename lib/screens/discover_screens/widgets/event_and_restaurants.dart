@@ -13,14 +13,13 @@ class EventAndRestaurants extends StatelessWidget {
   Widget build(BuildContext context) {
     return StaggeredGrid.count(
         crossAxisCount: 2, // Number of columns
-        mainAxisSpacing: 0, // Spacing between rows
-        crossAxisSpacing: 0, // Spacing between columns
+        mainAxisSpacing: 10, // Spacing between rows
+        crossAxisSpacing: 15, // Spacing between columns
         children: List.generate(
         20,
         (index) => Container(
           height: 250.h,
-          width: 200.w,
-          margin: EdgeInsets.only(right: 15.w, top: 10.h, bottom: 10.h),
+          width: 230.w,
           decoration: BoxDecoration(
               color: kcPrimaryColor.withOpacity(0.2),
               borderRadius: BorderRadius.circular(15),
@@ -63,20 +62,8 @@ class EventAndRestaurants extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.end,
-                    //   children: [
-                    //     IconButton(
-                    //         onPressed: () {},
-                    //         icon: const Icon(
-                    //           Icons.favorite_outline,
-                    //           size: 25,
-                    //           color: kcSecondary,
-                    //         )),
-                    //   ],
-                    // ),
-                    const Spacer(),
                     Text(
                       'The new event',
                       maxLines: 1,
@@ -84,13 +71,13 @@ class EventAndRestaurants extends StatelessWidget {
                       style: AppTextStyles.font18_700TextStyle,
                     ),
                     Text(
-                      'Created by: Aneeb Tariq',
-                      style: AppTextStyles.font13TextStyle,
+                      'Created by:\n Aneeb Tariq',
+                      style: AppTextStyles.font14_400TextStyle,
                     ),
                     verticalSpaceTiny,
                     Text(
                       'Available Tickets: 10',
-                      style: AppTextStyles.font11_500TextStyle,
+                      style: AppTextStyles.font14_400TextStyle,
                     ),
                     verticalSpaceTiny,
                   ],

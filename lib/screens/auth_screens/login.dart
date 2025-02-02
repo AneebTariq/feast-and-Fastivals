@@ -19,130 +19,166 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(ImageAssets.bgImage), fit: BoxFit.cover),
-            ),
+      backgroundColor: kcPrimaryColor,
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              kcPrimaryColorDark.withOpacity(0.9),
+              kcPrimaryColor.withOpacity(0.6),
+              kcPrimaryColorLight.withOpacity(0.1),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  kcBlackColor,
-                  kcBlackColor.withOpacity(0.2),
-                  kcBlackColor.withOpacity(0.2)
-                ],
-                end: Alignment.topCenter,
-                begin: Alignment.bottomCenter,
-              ),
-            ),
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Column(children: [
-                  verticalSpaceMassive,
-                  Text(
-                    'Login',
-                    style: AppTextStyles.font24_900TextStyle.copyWith(color: kcWhiteColor),
+        ),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
+            child: Column(
+              children: [
+                verticalSpaceLarge,
+                // App Logo or Icon (Optional)
+                Image.asset(
+                  ImageAssets.logo, // Replace with your app logo asset
+                  height: 150.h,
+                  width: 150.w,
+                ),
+                verticalSpaceSmall,
+                Text(
+                  'Login',
+                  style: AppTextStyles.font24_900TextStyle.copyWith(
+                    color: kcWhiteColor,
+                    fontSize: 32.sp,
                   ),
-                  verticalSpaceLarge,
-                  Text(
-                    'Welcome back to Feast & festivals',
-                    style: AppTextStyles.font18_700TextStyle
-                        .copyWith(color: kcWhiteColor),
+                ),
+                verticalSpaceSmall,
+                Text(
+                  'Welcome back to Feast & Festivals',
+                  style: AppTextStyles.font18_700TextStyle.copyWith(
+                    color: kcWhiteColor.withOpacity(0.8),
+                    fontSize: 16.sp,
                   ),
-                  verticalSpaceLarge,
-                  LoginForm(),
-                  verticalSpaceMedium,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      GestureDetector(
-                        onTap: authController.forgetPassword,
-                        child: Text(
-                          'Forget password?',
-                          style: AppTextStyles.font14_400TextStyle.copyWith(
-                            color: kcWhiteColor,
-                            decoration: TextDecoration.underline,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  verticalSpaceLarge,
-                  CustomButton(
-                    btnText: 'Login',
-                    onClick: authController.login,
-                  ),
-                  verticalSpaceMedium,
-                  Text(
-                    'or',
-                    style: AppTextStyles.font24_900TextStyle
-                        .copyWith(color: kcWhiteColor),
-                  ),
-                  verticalSpaceMedium,
-                  CustomButton(
-                    onClick: authController.loginWithGoogle,
-                    btnIcon: Padding(
-                      padding: EdgeInsets.only(left: 20.w),
-                      child: Image.asset(
-                        ImageAssets.google,
-                        height: 40.h,
-                        width: 40.h,
+                ),
+                verticalSpaceMedium,
+                verticalSpaceSmall,
+                // Login Form
+                LoginForm(),
+                verticalSpaceMedium,
+                // Forget Password
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: GestureDetector(
+                    onTap: authController.forgetPassword,
+                    child: Text(
+                      'Forgot Password?',
+                      style: AppTextStyles.font14_400TextStyle.copyWith(
+                        color: kcWhiteColor,
+                        decoration: TextDecoration.underline,
                       ),
                     ),
-                    btnText: 'Login with Google',
-                    bgColor: kcWhiteColor,
-                    outLineBorder: true,
                   ),
-                  verticalSpaceMedium,
-                  CustomButton(
-                    onClick: authController.loginWithApple,
-                    btnIcon: Padding(
-                      padding: EdgeInsets.only(left: 20.w),
-                      child: Image.asset(
-                        ImageAssets.apple,
-                        height: 40.h,
-                        width: 40.w,
+                ),
+                verticalSpaceMedium,
+                verticalSpaceSmall,
+                // Login Button
+                CustomButton(
+                  btnText: 'Login',
+                  onClick: authController.login,
+                  bgColor: kcSecondary,
+                  textColor: kcWhiteColor,
+                ),
+                verticalSpaceMedium,
+                // Divider with "OR"
+                Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        color: kcWhiteColor.withOpacity(0.3),
+                        thickness: 1,
                       ),
                     ),
-                    btnText: 'Login with Apple',
-                    bgColor: kcWhiteColor,
-                    outLineBorder: true,
-                  ),
-                  verticalSpaceMedium,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Don\'t have Account? ',
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
+                      child: Text(
+                        'or',
                         style: AppTextStyles.font14_600TextStyle.copyWith(
-                          color: kcVeryLightGrey,
+                          color: kcWhiteColor.withOpacity(0.8),
                         ),
                       ),
-                      GestureDetector(
-                          onTap: authController.signUpNavigation,
-                          child: Text(
-                            'Sign Up',
-                            style: AppTextStyles.font14_600TextStyle.copyWith(
-                              color: kcBlueColor,
-                              decoration: TextDecoration.underline,
-                            ),
-                          )),
-                    ],
-                  )
-                ]),
-              ),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        color: kcWhiteColor.withOpacity(0.3),
+                        thickness: 1,
+                      ),
+                    ),
+                  ],
+                ),
+                verticalSpaceMedium,
+                // Google Login Button
+                CustomButton(
+                  onClick: authController.loginWithGoogle,
+                  btnIcon: Padding(
+                    padding: EdgeInsets.only(left: 20.w),
+                    child: Image.asset(
+                      ImageAssets.google,
+                      height: 30.h,
+                      width: 30.w,
+                    ),
+                  ),
+                  btnText: 'Login with Google',
+                  bgColor: kcWhiteColor,
+                  textColor: kcWhiteColor,
+                  outLineBorder: true,
+                ),
+                verticalSpaceSmall,
+                // Apple Login Button
+                CustomButton(
+                  onClick: authController.loginWithApple,
+                  btnIcon: Padding(
+                    padding: EdgeInsets.only(left: 20.w),
+                    child: Image.asset(
+                      ImageAssets.apple,
+                      height: 30.h,
+                      width: 30.w,
+                    ),
+                  ),
+                  btnText: 'Login with Apple',
+                  bgColor: kcWhiteColor,
+                  textColor: kcWhiteColor,
+                  outLineBorder: true,
+                ),
+                verticalSpaceMedium,
+                // Sign Up Prompt
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Don\'t have an account? ',
+                      style: AppTextStyles.font14_600TextStyle.copyWith(
+                        color: kcWhiteColor.withOpacity(0.8),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: authController.signUpNavigation,
+                      child: Text(
+                        'Sign Up',
+                        style: AppTextStyles.font14_600TextStyle.copyWith(
+                          color: kcSecondary,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                verticalSpaceMassive,
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }

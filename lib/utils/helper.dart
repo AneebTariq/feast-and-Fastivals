@@ -104,13 +104,13 @@ Widget kLoadingWidget({Color? loaderColor, double? size}) => Center(
       ),
     );
 
-showToast(String message) {
+showToast(String message,Color bgColor) {
   Fluttertoast.showToast(
       msg: message,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 1,
-      backgroundColor: kcLightGrey,
+      backgroundColor:bgColor?? kcLightGrey,
       textColor: kcWhiteColor,
       fontSize: 16);
 }
@@ -132,7 +132,9 @@ showAlert(
     animType: AnimType.bottomSlide,
     title: title,
     desc: description ?? "",
-    btnCancelText: "dismiss".tr,
+    btnCancelText: "Cancel".tr,
+    btnCancelColor: kcLightGrey,
+    btnOkColor: kcSecondary,
     btnCancelOnPress: onCancelPress ?? () {},
     btnOkOnPress: onOkPress,
     dismissOnBackKeyPress: dismissOnBackKeyPress,

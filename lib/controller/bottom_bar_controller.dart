@@ -17,8 +17,8 @@ class BottomBarController extends GetxController {
   // List of pages to display based on the selected index
   final List<Widget> pages = [
     HomeScreen(),
-    const DiscoverScreen(),
-    const NotificationsScreen(),
-    const SettingScreen(),
+    DiscoverScreen(),
+    NotificationsScreen(),
+    SettingScreen(),
   ];
 }

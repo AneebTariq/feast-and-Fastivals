@@ -17,15 +17,27 @@ class LoginForm extends StatelessWidget {
         child: Column(
           children: [
             CustomTextField(
-              controller: authController.loginNumberController,
-              title: 'number',
+              controller: authController.loginEmailController,
+              hintText: 'Enter your email',
+              prefix: const Icon(Icons.mail_outline, color: kcHintColor),
               bgClr: kcWhiteColor,
             ),
             verticalSpaceMedium,
-            CustomTextField(
-              controller: authController.loginPasswordController,
-              title: 'Password',
-              bgClr: kcWhiteColor,
+            Obx(
+              ()=> CustomTextField(
+                controller: authController.loginPasswordController,
+                hintText: 'Enter your password',
+                prefix: const Icon(Icons.lock_outline, color: kcHintColor),
+                bgClr: kcWhiteColor,
+                obscureText: authController.isPasswordVisible.value,
+                suffixIcon:
+                GestureDetector(
+                  onTap: authController.toggleForPasswordVisibility,
+                  child: authController.isPasswordVisible.value==true
+                      ?const Icon(Icons.visibility_off, color: kcHintColor)
+                      :const Icon(Icons.visibility, color: kcHintColor),
+                ),
+              ),
             ),
           ],
         ));

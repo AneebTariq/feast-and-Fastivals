@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pak_festive/controller/common_controller.dart';
 import 'package:pak_festive/utils/app_colors.dart';
 import 'package:pak_festive/utils/app_text_styles.dart';
+import 'package:pak_festive/utils/helper.dart';
 import 'package:pak_festive/widgets/safe_area_helper.dart';
+import '../../utils/image_assets.dart';
 import '../auth_screens/login.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -26,20 +29,12 @@ class SplashScreen extends StatelessWidget {
       // });
     });
 
-    return SafeAreaHelper(
-      child: Column(
+    return Scaffold(
+      backgroundColor:kcBackgroundColor,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            child: Container(
-              color: kcBlackColor,
-              child: Center(
-                  child: Text(
-                'Feast & Festivals',
-                style: AppTextStyles.font24TextStyle
-                    .copyWith(color: kcWhiteColor),
-              )),
-            ),
-          ),
+          Center(child: Image.asset(ImageAssets.logo,height:200.h,width: 200.w,fit: BoxFit.cover,)),
         ],
       ),
     );
