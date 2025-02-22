@@ -26,7 +26,6 @@ class DiscoverScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             verticalSpaceSmall,
-            verticalSpaceSmall,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -41,6 +40,7 @@ class DiscoverScreen extends StatelessWidget {
                           Icons.search_rounded,
                           size: 24,
                         )),
+                    borderSide: BorderSide.none,
                   ),
                 ),
                 IconButton(
@@ -62,7 +62,7 @@ class DiscoverScreen extends StatelessWidget {
             ),
             verticalSpaceSmall,
             verticalSpaceSmall,
-            const EventAndRestaurants(),
+             EventAndRestaurants(),
           ],
         ),
       )),

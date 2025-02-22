@@ -19,7 +19,8 @@ class CreateEventScreen extends StatelessWidget {
       appBar: const CustomAppBar(
         title: 'Create Event',
         centerTitle: true,
-        backNavigation: true,
+        backNavigation: false,
+        leading: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -40,10 +41,17 @@ class CreateEventScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: kcWhiteColor,
                             borderRadius: BorderRadius.circular(12.r),
-                            border: Border.all(color: kcHintColor),
+                            boxShadow: [
+                              BoxShadow(
+                                offset: const Offset(0, 0),
+                                blurRadius: 4,
+                                spreadRadius: 0,
+                                color: kcBlackColor.withOpacity(0.2)
+                              )
+                            ]
                           ),
                           child: const Icon(Icons.add_a_photo_outlined,
-                              color: kcSecondary, size: 40),
+                              color: kcSecondary, size: 30),
                         )
                       : ClipRRect(
                           borderRadius: BorderRadius.circular(12.r),
@@ -52,19 +60,27 @@ class CreateEventScreen extends StatelessWidget {
                         ),
                 ),
               ),
-              verticalSpaceMedium,
+              verticalSpaceSmall,
 
               /// Event Form
               EventCreateForm(),
-              verticalSpaceMedium,
+              verticalSpaceSmall,
 
               /// Google Map Picker
               Container(
                 height: 200.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: kcLightGrey,
-                  borderRadius: BorderRadius.circular(12.r),
+                  color: kcWhiteColor,
+                  borderRadius: BorderRadius.circular(15.r),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: const Offset(0, 0),
+                        blurRadius: 4,
+                        spreadRadius: 0,
+                        color: kcBlackColor.withOpacity(0.2),
+                      )
+                    ]
                 ),
                 child: GoogleMap(
                   initialCameraPosition: CameraPosition(

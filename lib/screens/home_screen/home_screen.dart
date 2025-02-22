@@ -28,20 +28,18 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Text(
                   commonController.getGreetingMessage(),
-                  style: AppTextStyles.font22TextStyle,
+                  style: AppTextStyles.font20_600TextStyle,
                 ),
                 verticalSpaceTiny,
                 Padding(
                   padding: EdgeInsets.only(left:20.w),
                   child: Row(
                     children: [
-                      Image.asset(ImageAssets.locationIcon,height: 25.h,width: 25.w,),
+                      Image.asset(ImageAssets.locationIcon,height: 20.h,width: 20.w,),
                       horizontalSpaceTiny,
                       Text(
                         'Faisalabad',
-                        style: AppTextStyles.font16_600TextStyle.copyWith(
-                          color: kcWhiteColor,
-                        ),
+                        style: AppTextStyles.font14_400TextStyle,
                       ),
                     ],
                   ),
@@ -63,17 +61,17 @@ class HomeScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Events',style: AppTextStyles.font22TextStyle,),
-                  TextButton(onPressed: homeController.viewAllEvents, child: Text('ViewAll',style: AppTextStyles.font15_600TextStyle.copyWith(color: kcSecondary),)),
+                  Text('Events',style: AppTextStyles.font20_600TextStyle,),
+                  TextButton(onPressed: homeController.viewAllEvents, child: Text('ViewAll',style: AppTextStyles.font14_400TextStyle.copyWith(color: kcSecondary),)),
                 ],
               ),
-              LiveEvents(),
               verticalSpaceSmall,
+              LiveEvents(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Restaurants',style: AppTextStyles.font22TextStyle,),
-                  TextButton(onPressed: homeController.viewAllRestaurants, child: Text('ViewAll',style: AppTextStyles.font15_600TextStyle.copyWith(color: kcSecondary),))
+                  Text('Restaurants',style: AppTextStyles.font20_600TextStyle,),
+                  TextButton(onPressed: homeController.viewAllRestaurants, child: Text('ViewAll',style: AppTextStyles.font14_400TextStyle.copyWith(color: kcSecondary),))
                 ],
               ),
               verticalSpaceSmall,

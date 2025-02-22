@@ -76,9 +76,14 @@ class PapularRestaurants extends StatelessWidget {
                                 onTap:(){
                                   homeController.toggleForFavorite();
                                 },
-                                child:  CircleAvatar(
-                                  radius: 15,
-                                  backgroundColor: Colors.white,
+                                child: Container(
+                                  height: 40.h,
+                                  width: 35.w,
+                                  padding: const EdgeInsets.all(5),
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: kcWhiteColor,
+                                  ),
                                   child: homeController.isFavourite.value == true
                                       ? const Icon(Icons.favorite, color: kcErrorColor)
                                       : const Icon(Icons.favorite_border,
@@ -92,14 +97,15 @@ class PapularRestaurants extends StatelessWidget {
                         const Spacer(),
                         Text(
                           'Restaurant Name',
-                          style: AppTextStyles.font18_700TextStyle,
+                          style: AppTextStyles.font16_600TextStyle,
                         ),
+                        verticalSpaceTiny,
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
                               'Rating: 4.5',
-                              style: AppTextStyles.font13TextStyle,
+                              style: AppTextStyles.font12_400TextStyle,
                             ),
                             horizontalSpaceTiny,
                             const Icon(Icons.star,color: kcWarning,size: 20,),
@@ -108,7 +114,7 @@ class PapularRestaurants extends StatelessWidget {
                         verticalSpaceTiny,
                         Text(
                           'Open: 10 AM - 12 PM',
-                          style: AppTextStyles.font11_500TextStyle,
+                          style: AppTextStyles.font12_400TextStyle,
                         ),
                         verticalSpaceTiny,
                       ],

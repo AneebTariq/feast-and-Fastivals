@@ -18,14 +18,14 @@ class ProfilePicSignup extends StatelessWidget {
         decoration: BoxDecoration(
           color: kcWhiteColor,
           border: Border.all(color: kcLightGrey),
-          borderRadius: BorderRadius.circular(100),
+          borderRadius: BorderRadius.circular(15),
         ),
         child: Stack(
           children: [
            Obx(()=>
            authController.profilePicUrl.isEmpty?const SizedBox()
                :ClipRRect(
-             borderRadius: BorderRadius.circular(100),
+             borderRadius: BorderRadius.circular(15),
              child: Image.asset(authController.profilePicUrl.value,fit: BoxFit.cover,),
            ),),
             Container(
@@ -33,7 +33,7 @@ class ProfilePicSignup extends StatelessWidget {
               width: 120.w,
               decoration: BoxDecoration(
                 color: kcWhiteColor.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(100),
+                borderRadius: BorderRadius.circular(15),
               ),
               child: GestureDetector(
                 onTap: authController.pickImage,

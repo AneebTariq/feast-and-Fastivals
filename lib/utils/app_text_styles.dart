@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyles {
   static final String _fontPoppins = GoogleFonts.inter().fontFamily!;
+  static final String _fontDmSerifDisplay = GoogleFonts.dmSerifDisplay().fontFamily!;
 
   static TextStyle font16_400TextStyle = TextStyle(
     fontSize: 16,
@@ -138,7 +139,7 @@ class AppTextStyles {
 
   static TextStyle font20_600TextStyle = TextStyle(
     fontSize: 20,
-    fontFamily: _fontPoppins,
+    fontFamily: _fontDmSerifDisplay,
     fontWeight: FontWeight.w600,
   );
 

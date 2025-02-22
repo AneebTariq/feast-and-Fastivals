@@ -31,7 +31,14 @@ class SettingListWidget extends StatelessWidget {
         decoration: BoxDecoration(
           color: kcWhiteColor,
           borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: kcLightGrey),
+            boxShadow: [
+              BoxShadow(
+                offset: const Offset(0, 0),
+                blurRadius: 4,
+                spreadRadius: 0,
+                color: kcBlackColor.withOpacity(0.2),
+              )
+            ]
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,7 +54,7 @@ class SettingListWidget extends StatelessWidget {
                   color: firstIconClr == kcBackgroundColor
                       ? kcPrimaryColor
                       : kcBackgroundColor,
-                  size: 24,
+                  size: 20,
                 )),
             horizontalSpaceMedium,
             Column(

@@ -9,7 +9,7 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.onClick,
     required this.btnText,
-    this.bgColor = kcPrimaryColor,
+    this.bgColor = kcSecondary,
     this.borderRadius = 49,
     this.margin,
     this.outLineBorder = false,

@@ -10,7 +10,12 @@ class AccountSettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kcBackgroundColor,
-      appBar: const CustomAppBar(title: 'Account Settings',centerTitle: true,backNavigation: true,),
+      appBar: const CustomAppBar(
+        title: 'Account Settings',
+        centerTitle: true,
+        backNavigation: false,
+        leading: true,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),

@@ -10,6 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final double? height;
   final Widget? bottom;
+  final bool leading;
   final bool? backNavigation;
   final bool? centerTitle;
 
@@ -19,51 +20,61 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.titleWidget,
     this.bgColor = kcPrimaryColor,
     this.actions,
-    this.height = 70.0,
+    this.height = 56.0,
     this.bottom,
     this.backNavigation = false,
+    this.leading = false,
     this.centerTitle = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            kcPrimaryColor,
-            kcPrimaryColor.withOpacity(0.8),
-            kcPrimaryColor.withOpacity(0.5)
-          ],
-          stops: const [0.1, 0.6, 1.0],
-        ),
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(40.0),
-          // bottomRight: Radius.circular(20.0),
-        ),
+    return AppBar(
+      automaticallyImplyLeading: backNavigation ?? false,
+      toolbarHeight: height ?? 56.h,
+      centerTitle: centerTitle,
+      leading: leading
+          ? GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                padding: const EdgeInsets.only(bottom: 10, top: 8, left: 8),
+                margin: const EdgeInsets.only(top: 10, bottom: 10, left: 15),
+                decoration: BoxDecoration(
+                    color: kcWhiteColor,
+                    borderRadius: BorderRadius.circular(10.r),
+                    boxShadow: [
+                      BoxShadow(
+                          offset: const Offset(0, 0),
+                          blurRadius: 4,
+                          spreadRadius: 0,
+                          color: kcBlackColor.withOpacity(0.2))
+                    ]),
+                child: const Center(
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    size: 20,
+                    color: kcPrimaryColor,
+                  ),
+                ),
+              ),
+            )
+          : null,
+      title: titleWidget ??
+          Text(
+            title ?? '',
+            style: AppTextStyles.font20_600TextStyle,
+          ),
+      backgroundColor: kcBackgroundColor,
+      bottom: PreferredSize(
+        preferredSize: Size.fromHeight(48.h),
+        child: bottom ?? const SizedBox(),
       ),
-      child: AppBar(
-        automaticallyImplyLeading: backNavigation ?? false,
-        toolbarHeight: height ?? 70.h,
-        centerTitle: centerTitle,
-        foregroundColor: kcWhiteColor,
-        title: titleWidget ??
-            Text(
-              title ?? '',
-              style: AppTextStyles.font24_600TextStyle,
-            ),
-        backgroundColor: Colors.transparent,
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(48.h),
-          child: bottom ?? const SizedBox(),
-        ),
-        actions: actions,
-      ),
+      actions: actions,
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(height ?? 70.h);
+  Size get preferredSize => Size.fromHeight(height ?? 56.h);
 }

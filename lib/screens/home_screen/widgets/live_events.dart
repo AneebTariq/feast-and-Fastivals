@@ -27,7 +27,7 @@ class LiveEvents extends StatelessWidget {
               },
               child: Container(
                 width: 220.w,
-                margin: EdgeInsets.only(right: 15.w, top: 10.h, bottom: 10.h),
+                margin: EdgeInsets.only(right: 15.w, bottom: 10.h),
                 decoration: BoxDecoration(
                     color: kcPrimaryColor.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(15),
@@ -79,9 +79,14 @@ class LiveEvents extends StatelessWidget {
                                   onTap:(){
                                     homeController.toggleForFavorite();
                                   },
-                                  child:  CircleAvatar(
-                                    radius: 15,
-                                    backgroundColor: Colors.white,
+                                  child:  Container(
+                                    height: 40.h,
+                                    width: 35.w,
+                                    padding: const EdgeInsets.all(5),
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: kcWhiteColor,
+                                    ),
                                     child: homeController.isFavourite.value == true
                                         ? const Icon(Icons.favorite, color: kcErrorColor)
                                         : const Icon(Icons.favorite_border,
@@ -97,16 +102,17 @@ class LiveEvents extends StatelessWidget {
                             'The new event',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: AppTextStyles.font18_700TextStyle,
+                            style: AppTextStyles.font16_600TextStyle,
                           ),
+                          verticalSpaceTiny,
                           Text(
                             'Created by: Aneeb Tariq',
-                            style: AppTextStyles.font14_400TextStyle,
+                            style: AppTextStyles.font12_400TextStyle,
                           ),
                           verticalSpaceTiny,
                           Text(
                             'Available Tickets: 10',
-                            style: AppTextStyles.font14_400TextStyle,
+                            style: AppTextStyles.font12_400TextStyle,
                           ),
                           verticalSpaceTiny,
                         ],

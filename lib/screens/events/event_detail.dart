@@ -1,11 +1,11 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:pak_festive/controller/event_controller.dart';
 import 'package:pak_festive/screens/events/widgets/event_creater_detail.dart';
+import 'package:pak_festive/screens/events/widgets/popup_menu.dart';
 import 'package:pak_festive/widgets/custom_button.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_text_styles.dart';
@@ -21,17 +21,13 @@ class EventDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kcBackgroundColor,
-      appBar: CustomAppBar(
+      appBar:  CustomAppBar(
         title: 'Event Detail',
         centerTitle: true,
-        backNavigation: true,
+        backNavigation: false,
+        leading: true,
         actions: [
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.more_vert,
-                size: 25,
-              )),
+          PopupMenu(),
           horizontalSpaceTiny,
         ],
       ),
@@ -60,7 +56,7 @@ class EventDetailScreen extends StatelessWidget {
               // Event Name
               Text(
                 'Kawali Night',
-                style: AppTextStyles.font24_900TextStyle.copyWith(
+                style: AppTextStyles.font16_600TextStyle.copyWith(
                   color: kcDarkGreyColor,
                 ),
               ),
@@ -71,21 +67,21 @@ class EventDetailScreen extends StatelessWidget {
                 children: [
                   Text(
                     'Total Tickets: 100',
-                    style: AppTextStyles.font14_600TextStyle.copyWith(
+                    style: AppTextStyles.font12_400TextStyle.copyWith(
                       color: kcMediumGrey,
                     ),
                   ),
                   horizontalSpaceSmall,
                   Text(
                     '|',
-                    style: AppTextStyles.font14_600TextStyle.copyWith(
+                    style: AppTextStyles.font12_400TextStyle.copyWith(
                       color: kcMediumGrey,
                     ),
                   ),
                   horizontalSpaceSmall,
                   Text(
                     'Tickets Sold: 50',
-                    style: AppTextStyles.font14_600TextStyle.copyWith(
+                    style: AppTextStyles.font12_400TextStyle.copyWith(
                       color: kcMediumGrey,
                     ),
                   ),
@@ -94,7 +90,7 @@ class EventDetailScreen extends StatelessWidget {
               verticalSpaceSmall,
               Text(
                 'Timing: 7:00 pm - 12:00 pm ',
-                style: AppTextStyles.font14_600TextStyle.copyWith(
+                style: AppTextStyles.font12_400TextStyle.copyWith(
                   color: kcMediumGrey,
                 ),
               ),
@@ -120,7 +116,7 @@ class EventDetailScreen extends StatelessWidget {
                   horizontalSpaceSmall,
                   Text(
                     'Kohanoor block 1, Faisalabad, Pakistan',
-                    style: AppTextStyles.font14_600TextStyle.copyWith(
+                    style: AppTextStyles.font14_400TextStyle.copyWith(
                       color: kcDarkGreyColor,
                     ),
                   ),
@@ -130,18 +126,26 @@ class EventDetailScreen extends StatelessWidget {
 
               // Event Creator Info
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   showAlert(
-                      dialogType: DialogType.noHeader, title: 'title',
-                      dialogBody:const EventCreaterDetail(),
+                    dialogType: DialogType.noHeader,
+                    title: 'title',
+                    dialogBody: EventCreaterDetail(),
                   );
                 },
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical:16.h,horizontal: 10.w),
+                  padding:
+                      EdgeInsets.symmetric(vertical: 16.h, horizontal: 10.w),
                   decoration: BoxDecoration(
-                    color: kcVeryLightGrey,
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
+                      color: kcWhiteColor,
+                      borderRadius: BorderRadius.circular(15.r),
+                      boxShadow: [
+                        BoxShadow(
+                            offset: const Offset(0, 0),
+                            blurRadius: 4,
+                            spreadRadius: 0,
+                            color: kcBlackColor.withOpacity(0.2))
+                      ]),
                   child: Row(
                     children: [
                       CircleAvatar(
@@ -169,10 +173,7 @@ class EventDetailScreen extends StatelessWidget {
                         ],
                       ),
                       const Spacer(),
-                      IconButton(
-                        onPressed: (){},
-                          icon: const Icon(Icons.more_vert,size: 25,),
-                      ),
+                       PopupMenu(),
                     ],
                   ),
                 ),
@@ -199,8 +200,16 @@ class EventDetailScreen extends StatelessWidget {
                 height: 200.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: kcLightGrey,
-                  borderRadius: BorderRadius.circular(12.r),
+                  color: kcWhiteColor,
+                  borderRadius: BorderRadius.circular(15.r),
+                  boxShadow: [
+                    BoxShadow(
+                      offset: const Offset(0, 0),
+                      blurRadius: 4,
+                      spreadRadius: 0,
+                      color: kcBlackColor.withOpacity(0.2),
+                    )
+                  ]
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12.r),
@@ -222,11 +231,11 @@ class EventDetailScreen extends StatelessWidget {
               verticalSpaceMedium,
               // Buy Ticket Button
               CustomButton(
-                onClick: () {},
+                onClick: eventController.buyTicket,
                 btnText: 'Buy Ticket',
                 bgColor: kcSecondary,
               ),
-              verticalSpaceLarge,
+              verticalSpaceMedium,
             ],
           ),
         ),

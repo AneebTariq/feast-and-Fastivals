@@ -16,10 +16,10 @@ class EventCreateForm extends StatelessWidget {
       children: [
         /// Event Name
         CustomTextField(
-          controller: eventController.nameController,
+          controller: eventController.eventNameController,
           hintText: 'Enter event name',
           prefix: const Icon(Icons.event, color: kcAccentBlueColor),
-          bgClr: kcWhiteColor,
+            borderSide:BorderSide.none,
         ),
 
         verticalSpaceSmall,
@@ -31,6 +31,7 @@ class EventCreateForm extends StatelessWidget {
           keyboardType: TextInputType.number,
           prefix: const Icon(Icons.confirmation_number_outlined, color: kcWarning),
           bgClr: kcWhiteColor,
+          borderSide:BorderSide.none,
         ),
 
         verticalSpaceSmall,
@@ -47,6 +48,7 @@ class EventCreateForm extends StatelessWidget {
                     hintText: 'Start Time',
                     prefix: const Icon(Icons.access_time, color: kcInfo),
                     bgClr: kcWhiteColor,
+                    borderSide:BorderSide.none,
                   ),
                 ),
               ),
@@ -63,6 +65,7 @@ class EventCreateForm extends StatelessWidget {
                     hintText: 'End Time',
                     prefix: const Icon(Icons.access_time_filled, color: kcInfo),
                     bgClr: kcWhiteColor,
+                    borderSide:BorderSide.none,
                   ),
                 ),
               ),
@@ -78,6 +81,7 @@ class EventCreateForm extends StatelessWidget {
           keyboardType: TextInputType.number,
           prefix: const Icon(Icons.attach_money, color: kcSuccess),
           bgClr: kcWhiteColor,
+          borderSide:BorderSide.none,
         ),
 
         verticalSpaceSmall,
@@ -88,6 +92,7 @@ class EventCreateForm extends StatelessWidget {
           hintText: 'Enter event address',
           prefix: const Icon(Icons.location_on_outlined, color: kcSecondary),
           bgClr: kcWhiteColor,
+          borderSide:BorderSide.none,
         ),
 
         verticalSpaceSmall,
@@ -99,6 +104,7 @@ class EventCreateForm extends StatelessWidget {
           maxLines: 4,
           prefix: const Icon(Icons.description_outlined, color: kcPrimaryColor),
           bgClr: kcWhiteColor,
+          borderSide:BorderSide.none,
         ),
       ],
     );

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:pak_festive/widgets/custom_button.dart';
-
+import 'package:get/get.dart';
+import '../../../controller/event_controller.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_text_styles.dart';
 import '../../../utils/helper.dart';
 
 class EventCreaterDetail extends StatelessWidget {
-  const EventCreaterDetail({super.key});
-
+   EventCreaterDetail({super.key});
+  final eventController=Get.put(EventController());
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -38,17 +38,17 @@ class EventCreaterDetail extends StatelessWidget {
                   ),
                 ),
                 child: CircleAvatar(
-                  radius: 48.r,
+                  radius: 40.r,
                   backgroundColor: kcVeryLightGrey,
                   backgroundImage: const NetworkImage(
                     'https://t3.ftcdn.net/jpg/02/99/04/20/360_F_299042079_vGBD7wIlSeNl7vOevWHiL93G4koMM967.jpg',
                   ),
                 ),
               ),
-              verticalSpaceMedium,
+              verticalSpaceSmall,
               Text(
                 'John Doe',
-                style: AppTextStyles.font20_600TextStyle.copyWith(
+                style: AppTextStyles.font16_600TextStyle.copyWith(
                   color: kcDarkGreyColor,
                   fontWeight: FontWeight.w700,
                 ),
@@ -144,21 +144,21 @@ class EventCreaterDetail extends StatelessWidget {
             ],
           ),
         ),
-        verticalSpaceSmall,
-        verticalSpaceSmall,
-        // Contact Button
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: CustomButton(
-            onClick: (){},
-            btnText: 'Contact Organizer',
-            bgColor: kcSecondary,
-            btnIcon: Padding(
-              padding: EdgeInsets.only(left:25.w),
-              child: const Icon(FontAwesomeIcons.whatsapp,size: 25,),
-            ),
-          ),
-        ),
+        // verticalSpaceSmall,
+        // verticalSpaceSmall,
+        // // Contact Button
+        // Padding(
+        //   padding: EdgeInsets.symmetric(horizontal: 16.w),
+        //   child: CustomButton(
+        //     onClick: (){},
+        //     btnText: 'Contact Organizer',
+        //     bgColor: kcSecondary,
+        //     btnIcon: Padding(
+        //       padding: EdgeInsets.only(left:25.w),
+        //       child: const Icon(FontAwesomeIcons.whatsapp,size: 25,),
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }

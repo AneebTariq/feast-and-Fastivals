@@ -20,7 +20,8 @@ class TicketsScreen extends StatelessWidget {
       appBar: const CustomAppBar(
         title: 'Tickets',
         centerTitle: true,
-        backNavigation: true,
+        backNavigation: false,
+        leading: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -33,10 +34,9 @@ class TicketsScreen extends StatelessWidget {
               /// **Ticket Filter Tabs (Active & Past)**
               Obx(
                   ()=> Container(
-                  padding: EdgeInsets.all(5.w),
                   decoration: BoxDecoration(
                     color: kcVeryLightGrey,
-                    borderRadius: BorderRadius.circular(50),
+                    borderRadius: BorderRadius.circular(15),
                   ),
                   child: Row(
                     children: [
@@ -50,7 +50,7 @@ class TicketsScreen extends StatelessWidget {
                               color: ticketController.isActiveSelected.value
                                   ? kcPrimaryColor
                                   : Colors.transparent,
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(15),
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -85,7 +85,7 @@ class TicketsScreen extends StatelessWidget {
                               color: ticketController.isActiveSelected == false
                                   ? kcPrimaryColor
                                   : Colors.transparent,
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(15),
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,

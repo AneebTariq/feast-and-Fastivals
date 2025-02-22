@@ -3,18 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:pak_festive/screens/ticket_screens/buy_ticket.dart';
 import 'package:pak_festive/utils/app_colors.dart';
 import 'package:pak_festive/utils/helper.dart';
 
 class EventController extends GetxController{
   /// Controllers for text fields
-  final TextEditingController nameController = TextEditingController();
+  final TextEditingController eventNameController = TextEditingController();
   final TextEditingController totalTicketsController = TextEditingController();
   final TextEditingController ticketPriceController = TextEditingController();
   final TextEditingController locationController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController startTimeController = TextEditingController();
   final TextEditingController endTimeController = TextEditingController();
+
+  /// booking detail
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController numberController = TextEditingController();
 
   /// **Time Picker Function**
   Future<void> pickTime({required bool isStartTime}) async {
@@ -97,4 +103,9 @@ class EventController extends GetxController{
     eventImage.value = null;
     selectedLocation.value = null;
   }
+
+  buyTicket(){
+    Get.to(()=> BuyTicket());
+  }
+
 }

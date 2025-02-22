@@ -43,7 +43,7 @@ class SignUpScreen extends StatelessWidget {
                   verticalSpaceLarge,
                   Text(
                     'Create Account',
-                    style: AppTextStyles.font24_900TextStyle.copyWith(
+                    style: AppTextStyles.font16_600TextStyle.copyWith(
                       color: kcWhiteColor,
                       fontSize: 32.sp,
                       fontWeight: FontWeight.bold,
@@ -52,7 +52,7 @@ class SignUpScreen extends StatelessWidget {
                   verticalSpaceSmall,
                   Text(
                     'Join us to explore events and restaurants!',
-                    style: AppTextStyles.font18_700TextStyle.copyWith(
+                    style: AppTextStyles.font16_400TextStyle.copyWith(
                       color: kcWhiteColor.withOpacity(0.8),
                       fontSize: 16.sp,
                     ),
@@ -71,66 +71,6 @@ class SignUpScreen extends StatelessWidget {
                     textColor: kcWhiteColor,
                   ),
                   verticalSpaceMedium,
-                  // Divider with "OR"
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Divider(
-                          color: kcWhiteColor.withOpacity(0.3),
-                          thickness: 1,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w),
-                        child: Text(
-                          'or',
-                          style: AppTextStyles.font14_600TextStyle.copyWith(
-                            color: kcWhiteColor.withOpacity(0.8),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          color: kcWhiteColor.withOpacity(0.3),
-                          thickness: 1,
-                        ),
-                      ),
-                    ],
-                  ),
-                  verticalSpaceMedium,
-                  // Google Login Button
-                  CustomButton(
-                    onClick: authController.loginWithGoogle,
-                    btnIcon: Padding(
-                      padding: EdgeInsets.only(left: 20.w),
-                      child: Image.asset(
-                        ImageAssets.google,
-                        height: 30.h,
-                        width: 30.w,
-                      ),
-                    ),
-                    btnText: 'Login with Google',
-                    bgColor: kcWhiteColor,
-                    textColor: kcWhiteColor,
-                    outLineBorder: true,
-                  ),
-                  verticalSpaceSmall,
-                  // Apple Login Button
-                  CustomButton(
-                    onClick: authController.loginWithApple,
-                    btnIcon: Padding(
-                      padding: EdgeInsets.only(left: 20.w),
-                      child: Image.asset(
-                        ImageAssets.apple,
-                        height: 30.h,
-                        width: 30.w,
-                      ),
-                    ),
-                    btnText: 'Login with Apple',
-                    bgColor: kcWhiteColor,
-                    textColor: kcWhiteColor,
-                    outLineBorder: true,
-                  ),
                   verticalSpaceMedium,
                   // Login Prompt
                   Row(
@@ -138,7 +78,7 @@ class SignUpScreen extends StatelessWidget {
                     children: [
                       Text(
                         'Already have an account? ',
-                        style: AppTextStyles.font14_600TextStyle.copyWith(
+                        style: AppTextStyles.font14_400TextStyle.copyWith(
                           color: kcWhiteColor.withOpacity(0.8),
                         ),
                       ),

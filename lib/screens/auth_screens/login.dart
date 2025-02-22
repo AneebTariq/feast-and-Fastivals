@@ -158,7 +158,7 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     Text(
                       'Don\'t have an account? ',
-                      style: AppTextStyles.font14_600TextStyle.copyWith(
+                      style: AppTextStyles.font14_400TextStyle.copyWith(
                         color: kcWhiteColor.withOpacity(0.8),
                       ),
                     ),
