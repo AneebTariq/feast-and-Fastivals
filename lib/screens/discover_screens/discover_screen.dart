@@ -38,26 +38,41 @@ class DiscoverScreen extends StatelessWidget {
                         onPressed: () {},
                         icon:  const Icon(
                           Icons.search_rounded,
-                          size: 24,
+                          size: 28,
                         )),
                     borderSide: BorderSide.none,
                   ),
                 ),
-                IconButton(
-                    onPressed: () {
-                      showAlert(
-                        dialogType: DialogType.noHeader,
-                        title: '',
-                        dialogBody: SearchFilters(),
-                        onOkPress: (){
+                Container(
+                  decoration: BoxDecoration(
+                    color: kcWhiteColor,
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: const Offset(0, 0),
+                        spreadRadius: 0,
+                        blurRadius: 4,
+                        color: kcBlackColor.withOpacity(0.2),
+                      )
+                    ]
+                  ),
+                  child: IconButton(
+                      onPressed: () {
+                        showAlert(
+                          dialogType: DialogType.noHeader,
+                          title: '',
+                          dialogBody: SearchFilters(),
+                          onOkPress: (){
 
-                        }
-                      );
-                    },
-                    icon: const Icon(
-                      Icons.filter_list_rounded,
-                      size: 35,
-                    )),
+                          }
+                        );
+                      },
+                      icon: const Icon(
+                        Icons.filter_list_rounded,
+                        size: 35,
+                        color: kcPrimaryColor,
+                      )),
+                ),
               ],
             ),
             verticalSpaceSmall,

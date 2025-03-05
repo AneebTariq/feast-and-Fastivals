@@ -18,7 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     required this.title,
     this.titleWidget,
-    this.bgColor = kcPrimaryColor,
+    this.bgColor,
     this.actions,
     this.height = 56.0,
     this.bottom,
@@ -66,7 +66,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             title ?? '',
             style: AppTextStyles.font20_600TextStyle,
           ),
-      backgroundColor: kcBackgroundColor,
+      backgroundColor:bgColor?? kcBackgroundColor,
       bottom: PreferredSize(
         preferredSize: Size.fromHeight(48.h),
         child: bottom ?? const SizedBox(),

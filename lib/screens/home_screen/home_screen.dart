@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pak_festive/controller/common_controller.dart';
 import 'package:pak_festive/controller/home_controller.dart';
+import 'package:pak_festive/main.dart';
 import 'package:pak_festive/screens/home_screen/widgets/live_events.dart';
 import 'package:pak_festive/screens/home_screen/widgets/papular_restaurants.dart';
 import 'package:pak_festive/utils/app_colors.dart';
@@ -21,30 +22,27 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: kcBackgroundColor,
       appBar:CustomAppBar(
-        titleWidget:Row(
+        height: 80.h,
+        titleWidget:Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  commonController.getGreetingMessage(),
-                  style: AppTextStyles.font20_600TextStyle,
-                ),
-                verticalSpaceTiny,
-                Padding(
-                  padding: EdgeInsets.only(left:20.w),
-                  child: Row(
-                    children: [
-                      Image.asset(ImageAssets.locationIcon,height: 20.h,width: 20.w,),
-                      horizontalSpaceTiny,
-                      Text(
-                        'Faisalabad',
-                        style: AppTextStyles.font14_400TextStyle,
-                      ),
-                    ],
+            Text(
+              commonController.getGreetingMessage(),
+              style: AppTextStyles.font20_600TextStyle,
+            ),
+            verticalSpaceTiny,
+            Padding(
+              padding: EdgeInsets.only(left:20.w),
+              child: Row(
+                children: [
+                  Image.asset(ImageAssets.locationIcon,height: 20.h,width: 20.w,),
+                  horizontalSpaceTiny,
+                  Text(
+                    'Faisalabad',
+                    style: AppTextStyles.font14_400TextStyle,
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ) ,

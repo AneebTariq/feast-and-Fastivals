@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:get/get.dart';
 import 'package:in_app_review/in_app_review.dart';
-import 'package:pak_festive/screens/account_settings/account_settings.dart';
+import 'package:pak_festive/screens/settings/account_settings/account_settings.dart';
 import 'package:pak_festive/screens/events/create_event.dart';
 import 'package:pak_festive/screens/restaurants/create_restaurant.dart';
 import 'package:pak_festive/screens/scanner_screens/scanner_code.dart';
 import 'package:pak_festive/screens/ticket_screens/tickets.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../screens/privacy_policy_screen/privacy_policy.dart';
+import '../screens/settings/privacy_policy_screen/privacy_policy.dart';
 import '../utils/app_colors.dart';
 import '../utils/helper.dart';
 
