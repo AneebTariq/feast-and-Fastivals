@@ -14,26 +14,26 @@ class LiveEvents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 350.h,
+      height: 270.h,
       width: 400.w,
       child: ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
-          itemCount: 10,
+          itemCount: homeController.events.length,
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap:(){
                 homeController.viewEventDetail('');
               },
               child: Container(
-                width: 220.w,
-                margin: EdgeInsets.only(right: 15.w, bottom: 10.h),
+                width: 180.w,
+                margin: EdgeInsets.only(right: 15.w, bottom: 5.h),
                 decoration: BoxDecoration(
                     color: kcPrimaryColor.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(15),
-                    image: const DecorationImage(
+                    image:  DecorationImage(
                       image: NetworkImage(
-                          'https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3Vwd2s2MTY5MTk3NS13aWtpbWVkaWEtaW1hZ2Uta293YjI4OTguanBn.jpg'),
+                          '${homeController.events[index]}'),
                       fit: BoxFit.cover,
                     ),
                     boxShadow: [
@@ -41,7 +41,7 @@ class LiveEvents extends StatelessWidget {
                           offset: const Offset(0, 0),
                           blurRadius: 4,
                           spreadRadius: 0,
-                          color: kcBlackColor.withOpacity(0.1))
+                          color: kcBlackColor.withOpacity(0.2))
                     ]),
                 child: Stack(
                   children: [
@@ -52,14 +52,14 @@ class LiveEvents extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                         gradient: LinearGradient(
                           colors: [
-                            kcWhiteColor.withOpacity(0.8),
-                            kcWhiteColor.withOpacity(0.4),
+                            kcWhiteColor.withOpacity(0.9),
+                            kcWhiteColor.withOpacity(0.5),
                             kcTransparent,
                           ],
                           stops:const [
                             0.1,
-                            0.4,
-                            0.2,
+                            0.3,
+                            0.1,
                           ],
                           begin: Alignment.bottomCenter,
                           end: Alignment.topCenter,
@@ -71,32 +71,6 @@ class LiveEvents extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Obx(
-                               ()=> GestureDetector(
-                                  onTap:(){
-                                    homeController.toggleForFavorite();
-                                  },
-                                  child:  Container(
-                                    height: 40.h,
-                                    width: 35.w,
-                                    padding: const EdgeInsets.all(5),
-                                    decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: kcWhiteColor,
-                                    ),
-                                    child: homeController.isFavourite.value == true
-                                        ? const Icon(Icons.favorite, color: kcErrorColor)
-                                        : const Icon(Icons.favorite_border,
-                                        color: Colors.black
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
                           const Spacer(),
                           Text(
                             'The new event',

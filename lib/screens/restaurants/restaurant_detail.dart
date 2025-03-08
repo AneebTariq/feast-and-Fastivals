@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pak_festive/controller/restaurant_controller.dart';
+import 'package:pak_festive/screens/restaurants/widgets/profile_image_background.dart';
+import 'package:pak_festive/utils/helper.dart';
 
 import '../../utils/app_colors.dart';
 import '../../widgets/custom_appbar.dart';
@@ -14,13 +16,13 @@ final String title;
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kcBackgroundColor,
-      appBar: CustomAppBar(title: title,centerTitle: true,backNavigation: true,),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const ProfileImageBackground(),
+              verticalSpaceSmall,
               Container(),
             ],
           ),

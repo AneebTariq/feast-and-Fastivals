@@ -14,7 +14,7 @@ class PapularRestaurants extends StatelessWidget {
     return ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: 5,
+        itemCount: homeController.restaurants.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: (){
@@ -26,9 +26,9 @@ class PapularRestaurants extends StatelessWidget {
               decoration: BoxDecoration(
                 color: kcPrimaryColor.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(15),
-                  image: const DecorationImage(
+                  image: DecorationImage(
                     image: NetworkImage(
-                        'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZXZlbnR8ZW58MHx8MHx8fDA%3D'),
+                        '${homeController.restaurants[index]}'),
                     fit: BoxFit.cover,
                   ),
                   boxShadow: [
@@ -36,7 +36,7 @@ class PapularRestaurants extends StatelessWidget {
                         offset: const Offset(0, 0),
                         blurRadius: 4,
                         spreadRadius: 0,
-                        color: kcBlackColor.withOpacity(0.5)
+                        color: kcBlackColor.withOpacity(0.2)
                     )
                   ]
               ),
@@ -68,32 +68,6 @@ class PapularRestaurants extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Obx(
-                                  ()=> GestureDetector(
-                                onTap:(){
-                                  homeController.toggleForFavorite();
-                                },
-                                child: Container(
-                                  height: 40.h,
-                                  width: 35.w,
-                                  padding: const EdgeInsets.all(5),
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: kcWhiteColor,
-                                  ),
-                                  child: homeController.isFavourite.value == true
-                                      ? const Icon(Icons.favorite, color: kcErrorColor)
-                                      : const Icon(Icons.favorite_border,
-                                      color: Colors.black
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
                         const Spacer(),
                         Text(
                           'Restaurant Name',

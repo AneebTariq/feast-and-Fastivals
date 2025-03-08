@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:crystal_navigation_bar/crystal_navigation_bar.dart';
 import 'package:pak_festive/controller/bottom_bar_controller.dart';
@@ -16,14 +17,14 @@ class BottomBarScreen extends StatelessWidget {
             () => CrystalNavigationBar(
           currentIndex: controller.selectedIndex,
           unselectedItemColor: kcWhiteColor,
-          selectedItemColor: kcSecondary,
+          selectedItemColor: kcPrimaryColor,
           backgroundColor: Colors.black.withOpacity(0.2),
           onTap: (index) => controller.setIndex(index),
           items: [
-            CrystalNavigationBarItem(icon: Icons.house),
-            CrystalNavigationBarItem(icon: Icons.search_rounded),
-            CrystalNavigationBarItem(icon: Icons.notifications_active),
-            CrystalNavigationBarItem(icon: Icons.settings_suggest),
+            CrystalNavigationBarItem(icon: FontAwesomeIcons.house),
+            CrystalNavigationBarItem(icon: FontAwesomeIcons.search),
+            CrystalNavigationBarItem(icon: FontAwesomeIcons.bell),
+            CrystalNavigationBarItem(icon: FontAwesomeIcons.sliders),
           ],
         ),
       ),
