@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pak_festive/utils/app_colors.dart';
-
 import '../utils/app_text_styles.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -22,41 +20,39 @@ class CustomTextField extends StatelessWidget {
   final double? radius;
   final BorderSide? borderSide;
 
-  const CustomTextField({
-    super.key,
-    this.hintText,
-    required this.controller,
-    this.obscureText = false,
-    this.suffixIcon,
-    this.bgClr,
-    this.textStyle,
-    this.prefix,
-    this.border,
-    this.borderTitle,
-    this.maxLines = 1,
-    this.keyboardType = TextInputType.text,
-    this.isReadOnly = false, // Default to editable
-    this.autoFocus = false, // Default to no autofocus
-    this.validator,
-    this.radius,
-    this.borderSide
-  });
+  const CustomTextField(
+      {super.key,
+      this.hintText,
+      required this.controller,
+      this.obscureText = false,
+      this.suffixIcon,
+      this.bgClr,
+      this.textStyle,
+      this.prefix,
+      this.border,
+      this.borderTitle,
+      this.maxLines = 1,
+      this.keyboardType = TextInputType.text,
+      this.isReadOnly = false, // Default to editable
+      this.autoFocus = false, // Default to no autofocus
+      this.validator,
+      this.radius,
+      this.borderSide});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: bgClr??kcWhiteColor,
-        borderRadius: BorderRadius.circular(radius??15),
-        boxShadow: [
-          BoxShadow(
-            offset: Offset(0, 0),
-            blurRadius: 4,
-            spreadRadius: 0,
-            color: kcBlackColor.withOpacity(0.2),
-          )
-        ]
-      ),
+          color: bgClr ?? kcWhiteColor,
+          borderRadius: BorderRadius.circular(radius ?? 15),
+          boxShadow: [
+            BoxShadow(
+              offset: const Offset(0, 0),
+              blurRadius: 4,
+              spreadRadius: 0,
+              color: kcBlackColor.withOpacity(0.2),
+            )
+          ]),
       child: TextFormField(
         obscureText: obscureText,
         controller: controller,
@@ -72,21 +68,22 @@ class CustomTextField extends StatelessWidget {
           hintText: hintText ?? '',
           labelText: borderTitle,
           hintStyle:
-          AppTextStyles.font14_400TextStyle.copyWith(color: kcHintColor),
+              AppTextStyles.font14_400TextStyle.copyWith(color: kcHintColor),
           contentPadding:
-          const EdgeInsets.symmetric(horizontal: 12.0, vertical: 18.0),
-          fillColor: bgClr??kcWhiteColor,
+              const EdgeInsets.symmetric(horizontal: 12.0, vertical: 18.0),
+          fillColor: bgClr ?? kcWhiteColor,
           filled: true,
           border: border ??
               OutlineInputBorder(
-                  borderSide: borderSide?? const BorderSide(color:kcHintColor ),
-                  borderRadius: BorderRadius.circular(radius??15)),
+                  borderSide:
+                      borderSide ?? const BorderSide(color: kcHintColor),
+                  borderRadius: BorderRadius.circular(radius ?? 15)),
           focusedBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: kcPrimaryColor),
-              borderRadius: BorderRadius.circular(radius??15)),
+              borderRadius: BorderRadius.circular(radius ?? 15)),
           errorBorder: OutlineInputBorder(
               borderSide: const BorderSide(color: kcErrorColor),
-              borderRadius: BorderRadius.circular(radius??15)),
+              borderRadius: BorderRadius.circular(radius ?? 15)),
           alignLabelWithHint: true,
           suffixIcon: suffixIcon,
         ),

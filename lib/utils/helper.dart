@@ -7,8 +7,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'app_colors.dart';
 
-
-
 const double _tinySize = 5.0;
 const double _smallSize = 10.0;
 const double _mediumSize = 25.0;
@@ -40,11 +38,11 @@ double screenWidth(BuildContext context) => MediaQuery.of(context).size.width;
 double screenHeight(BuildContext context) => MediaQuery.of(context).size.height;
 
 double screenHeightFraction(BuildContext context,
-    {int dividedBy = 1, double offsetBy = 0, double max = 3000}) =>
+        {int dividedBy = 1, double offsetBy = 0, double max = 3000}) =>
     min((screenHeight(context) - offsetBy) / dividedBy, max);
 
 double screenWidthFraction(BuildContext context,
-    {int dividedBy = 1, double offsetBy = 0, double max = 3000}) =>
+        {int dividedBy = 1, double offsetBy = 0, double max = 3000}) =>
     min((screenWidth(context) - offsetBy) / dividedBy, max);
 
 double halfScreenWidth(BuildContext context) =>
@@ -87,8 +85,7 @@ double getResponsiveFontSize(BuildContext context,
 void showLoadingDialog(
     {Color? loaderColor, double? size, bool dismissible = false}) async {
   await Get.dialog(kLoadingWidget(loaderColor: loaderColor, size: size),
-      barrierColor: kcTransparent,
-      barrierDismissible: dismissible);
+      barrierColor: kcTransparent, barrierDismissible: dismissible);
 }
 
 void closeLoadingDialog() {
@@ -104,13 +101,13 @@ Widget kLoadingWidget({Color? loaderColor, double? size}) => Center(
       ),
     );
 
-showToast(String message,Color bgColor) {
+showToast(String message, Color bgColor) {
   Fluttertoast.showToast(
       msg: message,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 1,
-      backgroundColor:bgColor?? kcLightGrey,
+      backgroundColor: bgColor,
       textColor: kcWhiteColor,
       fontSize: 16);
 }
@@ -121,7 +118,7 @@ showAlert(
     String? description,
     VoidCallback? onCancelPress,
     VoidCallback? onOkPress,
-      Widget? dialogBody,
+    Widget? dialogBody,
     bool dismissOnTouchOutside = true,
     bool dismissOnBackKeyPress = true}) {
   AwesomeDialog(
@@ -138,7 +135,7 @@ showAlert(
     btnCancelOnPress: onCancelPress ?? () {},
     btnOkOnPress: onOkPress,
     dismissOnBackKeyPress: dismissOnBackKeyPress,
-    body: dialogBody??const SizedBox(),
+    body: dialogBody ?? const SizedBox(),
     dialogBackgroundColor: kcWhiteColor,
   ).show();
 }

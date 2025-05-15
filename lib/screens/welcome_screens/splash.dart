@@ -3,9 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pak_festive/controller/common_controller.dart';
 import 'package:pak_festive/utils/app_colors.dart';
-import 'package:pak_festive/utils/app_text_styles.dart';
-import 'package:pak_festive/utils/helper.dart';
-import 'package:pak_festive/widgets/safe_area_helper.dart';
 import '../../utils/image_assets.dart';
 import '../auth_screens/login.dart';
 
@@ -30,11 +27,17 @@ class SplashScreen extends StatelessWidget {
     });
 
     return Scaffold(
-      backgroundColor:kcBackgroundColor,
+      backgroundColor: kcBackgroundColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(child: Image.asset(ImageAssets.logo,height:200.h,width: 200.w,fit: BoxFit.cover,)),
+          Center(
+              child: Image.asset(
+            ImageAssets.logo,
+            height: 200.h,
+            width: 200.w,
+            fit: BoxFit.cover,
+          )),
         ],
       ),
     );

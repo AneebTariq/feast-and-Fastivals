@@ -6,6 +6,7 @@ import 'package:pak_festive/controller/bottom_bar_controller.dart';
 import '../../utils/app_colors.dart';
 
 class BottomBarScreen extends StatelessWidget {
+  BottomBarScreen({super.key});
   final BottomBarController controller = Get.put(BottomBarController());
 
   @override
@@ -14,7 +15,7 @@ class BottomBarScreen extends StatelessWidget {
       extendBody: true,
       body: Obx(() => controller.pages[controller.selectedIndex]),
       bottomNavigationBar: Obx(
-            () => CrystalNavigationBar(
+        () => CrystalNavigationBar(
           currentIndex: controller.selectedIndex,
           unselectedItemColor: kcWhiteColor,
           selectedItemColor: kcPrimaryColor,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:super_banners/super_banners.dart';
 
 import '../../../controller/home_controller.dart';
 import '../../../utils/app_colors.dart';
@@ -20,15 +19,14 @@ class HiTeaBuffet extends StatelessWidget {
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemCount: homeController.buffet.length,
-          itemBuilder: (context,index){
-            return  GestureDetector(
+          itemBuilder: (context, index) {
+            return GestureDetector(
               onTap: () {
-                _showFullScreenImage(
-                    context, homeController.buffet[index]);
+                _showFullScreenImage(context, homeController.buffet[index]);
               },
               child: Container(
                 width: 300.w,
-                margin: EdgeInsets.only(right: 15.h,bottom: 5.h,top: 5.h),
+                margin: EdgeInsets.only(right: 15.h, bottom: 5.h, top: 5.h),
                 decoration: BoxDecoration(
                     color: kcWhiteColor,
                     borderRadius: BorderRadius.circular(15),
@@ -37,10 +35,8 @@ class HiTeaBuffet extends StatelessWidget {
                           offset: const Offset(0, 0),
                           blurRadius: 4,
                           spreadRadius: 0,
-                          color: kcBlackColor.withOpacity(0.2)
-                      )
-                    ]
-                ),
+                          color: kcBlackColor.withOpacity(0.2))
+                    ]),
                 child: Row(
                   children: [
                     Container(
@@ -48,10 +44,14 @@ class HiTeaBuffet extends StatelessWidget {
                       width: 120.w,
                       decoration: BoxDecoration(
                         color: kcWhiteColor,
-                        borderRadius: const BorderRadius.only(topRight: Radius.circular(100),bottomRight: Radius.circular(100),topLeft:Radius.circular(15),bottomLeft: Radius.circular(15) ),
+                        borderRadius: const BorderRadius.only(
+                            topRight: Radius.circular(100),
+                            bottomRight: Radius.circular(100),
+                            topLeft: Radius.circular(15),
+                            bottomLeft: Radius.circular(15)),
                         image: DecorationImage(
-                          image: NetworkImage(
-                              '${homeController.buffet[index]}'),
+                          image:
+                              NetworkImage('${homeController.buffet[index]}'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -95,6 +95,7 @@ class HiTeaBuffet extends StatelessWidget {
           }),
     );
   }
+
   void _showFullScreenImage(BuildContext context, String imageUrl) {
     showDialog(
       context: context,
